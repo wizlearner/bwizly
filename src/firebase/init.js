@@ -11,7 +11,7 @@ import 'firebase/auth'
 
 // <script>
   // Your web app's Firebase configuration
- var firebaseConfig = {
+ const firebaseConfig = {
     apiKey: "AIzaSyDF2oEsAFJHUVzOmHnlZIZQXgmNZkpLcU4",
     authDomain: "bwizly.firebaseapp.com",
     databaseURL: "https://bwizly.firebaseio.com",
