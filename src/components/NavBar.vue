@@ -1,10 +1,11 @@
 <template>
   <header class="navbar" :class="{ offline: !networkOnLine }">
-    <router-link to="/home">
+    <MenuBurger/>
+    <!-- <router-link to="/home">
       <img alt="logo-bento" class="logo" src="@/assets/img/bento-starter.svg" />
-      <span class="site-name title-desktop">{{ appTitle }}</span>
-      <span class="site-name title-mobile">{{ appShortTitle }}</span>
-    </router-link>
+        <span class="site-name title-desktop">{{ appTitle }}</span>
+        <span class="site-name title-mobile">{{ appShortTitle }}</span>
+    </router-link> -->
     <div class="links">
       <nav class="nav-links">
         <div class="nav-item">
@@ -36,8 +37,15 @@
 <script>
 import firebase from 'firebase/app'
 import { mapGetters, mapState } from 'vuex'
+import MenuBurger from '@/components/MenuBurger'
+
 
 export default {
+
+  components: {
+        MenuBurger// Register your component
+    },
+
   computed: {
     ...mapGetters('authentication', ['isUserLoggedIn']),
     ...mapState('authentication', ['user']),
@@ -183,5 +191,7 @@ export default {
     color: white;
     margin-left: 1.5rem;
   }
+
+
 }
 </style>

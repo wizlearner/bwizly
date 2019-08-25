@@ -16,4 +16,4 @@ const environmentConfiguration = fs.existsSync(environmentConfigurationPath)
 
 const config = merge(defaultConfiguration, environmentConfiguration)
 
-module.exports = config
+module.exports = config 

@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <nav-bar></nav-bar>
+    <nav-bar>
+    </nav-bar>
     <div class="main-wrapper">
       <router-view />
     </div>
-
     <new-content-available-toastr
       v-if="newContentAvailable"
       class="new-content-available-toastr"
@@ -19,14 +19,23 @@
     </apple-add-to-home-screen-modal>
   </div>
 </template>
+
+
 <script>
+
+
+import { mapState, mapActions, mapGetters } from 'vuex'
+
+
 import NavBar from '@/components/NavBar'
 import NewContentAvailableToastr from '@/components/NewContentAvailableToastr'
 import AppleAddToHomeScreenModal from '@/components/AppleAddToHomeScreenModal'
-import { mapState, mapActions, mapGetters } from 'vuex'
+
+
+
 
 export default {
-  components: { NavBar, NewContentAvailableToastr, AppleAddToHomeScreenModal },
+  components: { NavBar, NewContentAvailableToastr, AppleAddToHomeScreenModal},
   computed: {
     ...mapGetters('app', ['newContentAvailable']),
     ...mapState('app', ['showAddToHomeScreenModalForApple', 'refreshingApp'])
@@ -86,6 +95,7 @@ body {
         }
       }
     }
+
   }
 }
 </style>

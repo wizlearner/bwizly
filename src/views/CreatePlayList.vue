@@ -1,27 +1,41 @@
 <template>
   <div class="page-wrapper">
-    <h1 class="home-page-title">{{ appTitle }}</h1>
+    <nav-bar></nav-bar>
+    <h1 class="video-player">{{ appTitle }}</h1>
     <!-- <img alt="logo-bento" class="logo" src="@/assets/img/bento-starter.svg" />
      -->
-    <a
+    <div class="video-container">
+    
+    
+     <VideoPlayers></VideoPlayers>
+
+   
+ <a
       rel="noopener"
       class="documentation-link"
       target="_blank"
-      href="https://bento-starter.netlify.com/"
-      >Documentation →</a>
+      href="https://www.youtube.com/"
+      >Youtube Page →</a>
+   
+      </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import VideoPlayers from '@/components/VideoPlayers'
 
 export default {
-
+ components: {VideoPlayers},
+ name: 'CreatePlayList',
   head: function() {
     return {
       title: {
         inner: 'Home'
       },
+
+      components: {VideoPlayers},
+
       meta: [
         {
           name: 'description',
@@ -79,5 +93,15 @@ export default {
     width: fit-content;
     font-weight: 500; 
   }
+
+  .video-player{
+    display:flex;
+    width:1200px;
+    margin:auto;
+}
+
+.video-container{
+    margin-right:40px;
+}
 }
 </style>

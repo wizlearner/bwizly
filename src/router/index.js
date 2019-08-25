@@ -2,6 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Head from 'vue-head'
 import Home from '@/views/Home'
+
+import CreatePlayList from '@/views/CreatePlayList.vue'
+import Animals from '@/views/Animals.vue'
+import Numbers from '@/views/Numbers.vue'
+import Alphabets from '@/views/Alphabets.vue'
+
 import CheckLogin from '@/views/CheckLogin'
 import { isNil } from 'lodash'
 import store from '@/store'
@@ -21,7 +27,7 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/home',
+      path: '/',
       name: 'home',
       component: Home,
       meta: {
@@ -58,7 +64,57 @@ const router = new Router({
       component: () =>
         import(/* webpackChunkName: "client-chunk-product-details" */ '@/views/Product.vue')
     },
-    { path: '*', redirect: '/home' }
+    {
+      path: '/create-play-list',
+      name: 'create-play-list',
+      component: () =>
+        import(/* webpackChunkName: "client-chunk-create-play-list" */ '@/views/CreatePlayList.vue'),
+     meta: {
+        authNotRequired: true
+      }
+     },
+
+     {
+      path: '/watch-video',
+      name: 'watch-video',
+      component: () =>
+        import(/* webpackChunkName: "client-chunk-watch-video" */ '@/views/WatchVideo.vue'),
+     meta: {
+        authNotRequired: true
+      }
+      },
+
+      {
+      path: '/animals',
+      name: 'animals',
+      component: () =>
+        import(/* webpackChunkName: "client-chunk-animals" */ '@/views/Animals.vue'),
+     meta: {
+        authNotRequired: true
+      }
+      },
+
+      {
+      path: '/numbers',
+      name: 'numbers',
+      component: () =>
+        import(/* webpackChunkName: "client-chunk-numbers" */ '@/views/Numbers.vue'),
+     meta: {
+        authNotRequired: true
+      }
+      },
+      
+      {
+      path: '/alphabets',
+      name: 'alphabets',
+      component: () =>
+        import(/* webpackChunkName: "client-chunk-watch-video" */ '@/views/Alphabets.vue'),
+     meta: {
+        authNotRequired: true
+      }
+      },
+
+    { path: '*', redirect: '/' }
   ]
 })
 
